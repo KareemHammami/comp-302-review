@@ -21,7 +21,7 @@ type env = (string * int) list
 let rec eval (env : env) : exp -> int = function
   | Var x -> List.assoc x env (* look up the name in the environment *)
   | Lit n -> n
-  | Add (e1, e2) -> eval e1 + eval e2
+  | Add (e1, e2) -> eval env e1 + eval env e2
 ```
 
 ## Basic simplification
